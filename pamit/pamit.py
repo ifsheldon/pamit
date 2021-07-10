@@ -8,6 +8,18 @@ def mapto_kernel(src_field: ti.template(), target_field: ti.template(), ti_func:
 
 
 def map_to(src_field, target_field, ti_func, with_index, *args):
+    """
+
+    :param src_field: a taichi field of which values are mapped
+    :param target_field: a taichi field that receives mapped values
+    target_field must have the same shape of src_field
+    :param ti_func: @ti.func mapping function
+    :param with_index: whether ti_func receive indices
+    if True, ti_func should have index and element as first two arguments
+    if False, ti_func should have element as the first argument
+    :param args: arguments passed to ti_func
+    :return: None
+    """
     assert src_field.shape == target_field.shape
 
     @ti.func
@@ -24,8 +36,17 @@ def map_to(src_field, target_field, ti_func, with_index, *args):
         mapto_kernel(src_field, target_field, _func_with_index)
     else:
         mapto_kernel(src_field, target_field, _func)
-    pass
 
 
 def map_inplace(field, ti_func, with_index, *args):
+    """
+
+    :param field: a taichi field of which values are mapped inplace
+    :param ti_func: a @ti_func mapping function
+    :param with_index: whether ti_func receive indices
+    if True, ti_func should have index and element as first two arguments
+    if False, ti_func should have element as the first argument
+    :param args: arguments passed to ti_func
+    :return: None
+    """
     map_to(field, field, ti_func, with_index, *args)
