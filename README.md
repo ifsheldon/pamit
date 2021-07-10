@@ -14,6 +14,8 @@ Make sure you have `Taichi` installed.
 
 The APIs of `map_inplace()` and `map_to()` are straight forward.
 
+`map_to` requires the target field to have the same shape of the source field, but the "channels" may differ. Please see `examples/extend_dimension` for example.
+
 If `with_index` is `True`, then the Taichi function is expected to have `index` (i.e., the index of an element in a field) and `element` (i.e., the value of an element in a field) as first two arguments.
 
 Otherwise, the Taichi function is expected to have `element` as the first argument.
