@@ -39,5 +39,4 @@ print(field)
 * Set up CI and write test cases
 * Check backward capability
 * Reduce function
-* Nicer error messages
 * Simple user documentation

@@ -20,7 +20,7 @@ def map_to(src_field, target_field, ti_func, with_index, *args):
     :param args: arguments passed to ti_func
     :return: None
     """
-    assert src_field.shape == target_field.shape
+    assert src_field.shape == target_field.shape, "source field and target field must have the same shape"
 
     @ti.func
     def _func_with_index(index, element):
