@@ -1,4 +1,6 @@
 # pamit
+![Tests](https://github.com/ifsheldon/pamit/actions/workflows/run_tests.yaml/badge.svg)
+
 pamit -> ti map: Taichi Map Utils
 
 **PRs are welcomed! Please see TODOs.**
@@ -36,7 +38,6 @@ print(field)
 ```
 
 ## TODOs
-* Set up CI and write test cases
 * Check backward capability
 * Reduce function
 * Simple user documentation
